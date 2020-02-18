@@ -6,7 +6,17 @@ using System.Threading.Tasks;
 
 namespace BusinesLogic
 {
-    class Location
+    public class PartLocation
     {
+        public int Id { get; private set; }
+        public string Code { get; private set; }
+        public string Description { get; private set; }
+
+        public PartLocation(int id, string code, string description)
+        {
+            Id = id;
+            Code = code;
+            Description = description;
+        }
     }
 }

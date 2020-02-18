@@ -1,10 +1,11 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using BusinesLogic;
 
 namespace WarehouseManagement.test
 {
     [TestClass]
-    public class UnitTest1
+    public class OrderControllerTest
     {
         [TestMethod]
         public void TestMethod1()
