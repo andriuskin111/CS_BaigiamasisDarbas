@@ -22,18 +22,53 @@ namespace BusinesLogic
 
         public void AddPart(int orderId, Part part)
         {
-            _orders[orderId].Parts.Add(part);
+            for (int i = 0; i < _orders.Count; i++)
+            {
+                if (orderId == _orders[i].Id)
+                {
+                    _orders[i].Parts.Add(part);
+                }
+            }         
         }
 
         public void RemovePart(int orderId, int partId)
         {
-            foreach (var part in _orders[orderId].Parts)
+            foreach (var order in _orders)
             {
-                if(partId == part.Id)
+                if(orderId == order.Id)
                 {
-                    _orders[orderId].Parts.Remove(part);
+                    RemovePart(partId, order);
                 }
             } 
+        }
+
+        private static void RemovePart(int partId, Order order)
+        {
+            for (int i = 0; i < order.Parts.Count; i++)
+            {
+                if (partId == order.Parts[i].Id)
+                {
+                    order.Parts.RemoveAt(i);
+                }
+            }
+        }
+
+        public Order Retrieve(int orderId)
+        {
+            foreach (var order in _orders)
+            {
+                if(orderId == order.Id)
+                {
+                    return order;
+                }
+            }
+
+            return null;
+        }
+
+        public List<Order> Retrieve()
+        {
+            return _orders;
         }
     }
 }

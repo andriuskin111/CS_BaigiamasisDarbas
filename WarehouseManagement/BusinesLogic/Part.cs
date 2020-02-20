@@ -13,10 +13,10 @@ namespace BusinesLogic
         public string Brand { get; private set; }
         public string Model { get; private set; }
         public string Description { get; private set; }
-        public string Category { get; private set; }
+        public PartCategory Category { get; private set; }
         public PartLocation Location { get; private set; }
 
-        public Part(int id, int code, string brand, string model, string description, string category, PartLocation location)
+        public Part(int id, int code, string brand, string model, string description, PartCategory category, PartLocation location)
         {
             this.Id = id;
             this.Code = code;
