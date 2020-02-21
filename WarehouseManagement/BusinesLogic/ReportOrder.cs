@@ -8,16 +8,18 @@ namespace BusinesLogic
 {
     public class ReportOrder
     {
-        public string OrderDate { get; private set; }
-        public string Customer { get; private set; }
         public string OrderId { get; private set; }
+        public string OrderDate { get; private set; }
+        public string Customer { get; private set; }        
+        public string OrderStatus { get; private set; }
         public string Parts { get; private set; }
 
-        public ReportOrder(string orderDate, string customer, string orderId, List<Part> parts)
+        public ReportOrder(int orderId, DateTime orderDate, string customer, string orderStatus, List<Part> parts)
         {
-            OrderDate = orderDate;
-            Customer = customer;
-            OrderId = orderId;
+            OrderId = orderId.ToString();
+            OrderDate = orderDate.ToString();
+            Customer = customer;           
+            OrderStatus = orderStatus;
 
             foreach (var part in parts)
             {
@@ -26,9 +28,7 @@ namespace BusinesLogic
                     $", Brand: {part.Brand}" +
                     $", Model: {part.Model}" +
                     $", Description: {part.Description}" +
-                    $", Location: {part.Location}";
-
-                Parts += Environment.NewLine;
+                    $", Location: {part.Location.Code} {part.Location.Description}\n";
             }
         }
     }

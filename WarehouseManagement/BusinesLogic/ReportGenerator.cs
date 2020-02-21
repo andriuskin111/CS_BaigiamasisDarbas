@@ -15,12 +15,62 @@ namespace BusinesLogic
             _orderController = orderController;
         }
 
-        public string GenerateGeneralRaport()
+        public List<ReportOrder> GenerateReport()
         {
-            string result = "";
+            List<ReportOrder> reportOrders = new List<ReportOrder>();
+
+            foreach (var order in _orderController.Retrieve())
+            {
+                reportOrders.Add(new ReportOrder(order.Id, order.Date, order.Customer, order.Status, order.Parts));
+            }
 
 
-            return result;
+            return reportOrders;
+        }
+
+        public List<ReportOrder> GenerateReport(int orderId)
+        {
+            List<ReportOrder> reportOrders = new List<ReportOrder>();
+
+            foreach (var order in _orderController.Retrieve())
+            {
+                if(orderId == order.Id)
+                {
+                    reportOrders.Add(new ReportOrder(order.Id, order.Date, order.Customer, order.Status, order.Parts));
+                }                
+            }
+
+            return reportOrders;
+        }
+
+        public List<ReportOrder> GenerateReport(DateTime date)
+        {
+            List<ReportOrder> reportOrders = new List<ReportOrder>();
+
+            foreach (var order in _orderController.Retrieve())
+            {
+                if (date.ToShortDateString() == order.Date.ToShortDateString())
+                {
+                    reportOrders.Add(new ReportOrder(order.Id, order.Date, order.Customer, order.Status, order.Parts));
+                }
+            }
+
+            return reportOrders;
+        }
+
+        public List<ReportOrder> GenerateReport(string customer)
+        {
+            List<ReportOrder> reportOrders = new List<ReportOrder>();
+
+            foreach (var order in _orderController.Retrieve())
+            {
+                if (customer == order.Customer)
+                {
+                    reportOrders.Add(new ReportOrder(order.Id, order.Date, order.Customer, order.Status, order.Parts));
+                }
+            }
+
+            return reportOrders;
         }
     }
 }

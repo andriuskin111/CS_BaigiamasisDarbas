@@ -52,6 +52,7 @@
     <Compile Include="OrderControllerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PartRepositoryTest.cs" />
+    <Compile Include="ReportGeneratorTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
