@@ -9,7 +9,7 @@ namespace WarehouseManagementUI
 {
     public class InfoDisplay
     {
-        public static void ShowAllOrders(ReportGenerator reportGenerator)
+        public void ShowAllOrders(ReportGenerator reportGenerator)
         {
             foreach (var report in reportGenerator.GenerateReport())
             {
@@ -21,7 +21,7 @@ namespace WarehouseManagementUI
             }
         }
 
-        public static void ShowOrdersById(ReportGenerator reportGenerator, int orderId)
+        public void ShowOrdersById(ReportGenerator reportGenerator, int orderId)
         {
             foreach (var report in reportGenerator.GenerateReport(orderId))
             {
@@ -33,7 +33,7 @@ namespace WarehouseManagementUI
             }
         }
 
-        public static void ShowOrdersByDate(ReportGenerator reportGenerator, DateTime date)
+        public void ShowOrdersByDate(ReportGenerator reportGenerator, DateTime date)
         {
             foreach (var report in reportGenerator.GenerateReport(date))
             {
@@ -45,7 +45,7 @@ namespace WarehouseManagementUI
             }
         }
 
-        public static void ShowOrdersByCustomer(ReportGenerator reportGenerator, string customer)
+        public void ShowOrdersByCustomer(ReportGenerator reportGenerator, string customer)
         {
             foreach (var report in reportGenerator.GenerateReport(customer))
             {
@@ -57,7 +57,19 @@ namespace WarehouseManagementUI
             }
         }
 
-        public static void ShowPartsInStock(PartRepository partRepository)
+        public void ShowOrdersByStatus(ReportGenerator reportGenerator, string status)
+        {
+            foreach (var report in reportGenerator.GenerateReportOrderStatus(status))
+            {
+                Console.WriteLine($"Order Id: {report.OrderId}\n" +
+                    $"Date: {report.OrderDate}\n" +
+                    $"Customer: {report.Customer}\n" +
+                    $"Status: {report.OrderStatus}\n" +
+                    $"Parts:\n{report.Parts}");
+            }
+        }
+
+        public void ShowPartsInStock(PartRepository partRepository)
         {
             Console.WriteLine($"Parts in stock({partRepository.Retrieve().Count}):");
 
@@ -74,7 +86,24 @@ namespace WarehouseManagementUI
             Console.WriteLine();
         }
 
-        public static void ShowPartsByLocationCode(PartRepository partRepository, string locationCode)
+        public void ShowAvailablePartsInStock(OrderController orderController, PartRepository partRepository)
+        {
+            Console.WriteLine("Available parts in stock");
+
+            foreach (var part in orderController.GetAvailableParts(partRepository))
+            {
+                Console.WriteLine($"Part Id: {part.Id}" +
+                    $", Code: {part.Code}" +
+                    $", Brand: {part.Brand}" +
+                    $", Model: {part.Model}" +
+                    $", Description: {part.Description}" +
+                    $", Location: {part.Location.Code} {part.Location.Description}");
+            }
+
+            Console.WriteLine();
+        }
+
+        public void ShowPartsByLocationCode(PartRepository partRepository, string locationCode)
         {
             int partCount = 0;
 

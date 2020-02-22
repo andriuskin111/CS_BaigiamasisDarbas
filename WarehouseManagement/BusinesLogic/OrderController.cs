@@ -38,6 +38,21 @@ namespace BusinesLogic
             return result;
         }
 
+        public List<Part> GetAvailableParts(PartRepository partRepository)
+        {
+            List<Part> result = new List<Part>();
+
+            foreach (var part in partRepository.Retrieve())
+            {
+                if (!CheckOrPartIsReserved(part))
+                {
+                    result.Add(part);
+                }
+            }
+
+            return result;
+        }
+
         private bool CheckOrPartIsReserved(Part part)
         {
             bool result = false;

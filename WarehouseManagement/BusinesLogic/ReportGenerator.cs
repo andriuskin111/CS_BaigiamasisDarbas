@@ -72,5 +72,20 @@ namespace BusinesLogic
 
             return reportOrders;
         }
+
+        public List<ReportOrder> GenerateReportOrderStatus(string status)
+        {
+            List<ReportOrder> reportOrders = new List<ReportOrder>();
+
+            foreach (var order in _orderController.Retrieve())
+            {
+                if (status == order.Status)
+                {
+                    reportOrders.Add(new ReportOrder(order.Id, order.Date, order.Customer, order.Status, order.Parts));
+                }
+            }
+
+            return reportOrders;
+        }
     }
 }

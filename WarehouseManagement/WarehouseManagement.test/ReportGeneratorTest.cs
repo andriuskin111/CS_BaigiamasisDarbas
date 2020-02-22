@@ -106,5 +106,26 @@ namespace WarehouseManagement.test
             // Assert
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void TestGenerateReporByOrderStatus()
+        {
+            // Arrange
+            OrderController orderController = new OrderController();
+            ReportGenerator reportGenerator = new ReportGenerator(orderController);
+
+            orderController.CreateNewOrder(1, "UAB EAMV");
+            orderController.CreateNewOrder(2, "UAB Rasmitas");
+            orderController.CreateNewOrder(3, "UAB TRT Shop");
+            orderController.CreateNewOrder(4, "UAB TRT Shop");
+
+            int expected = 4;
+
+            // Act
+            int actual = reportGenerator.GenerateReportOrderStatus("Opened").Count;
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
     }
 }

@@ -223,5 +223,31 @@ namespace WarehouseManagement.test
             // Assert
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void TestCheckOrPartIsReserved()
+        {
+            // Arrange
+            OrderController orderController = new OrderController();
+            PartRepository partRepository = new PartRepository();
+            List<Part> parts = partRepository.Retrieve();
+
+            orderController.CreateNewOrder(1, "UAB EAMV");
+            orderController.CreateNewOrder(2, "UAB Rasmitas");
+            orderController.CreateNewOrder(3, "UAB TRT Shop");
+
+            orderController.AddPart(2, parts[1]);
+            orderController.AddPart(2, parts[2]);
+
+            orderController.CloseOrder(2, partRepository);
+
+            int expected = 6;
+
+            // Act
+            int actual = orderController.GetAvailableParts(partRepository).Count;
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
