@@ -15,27 +15,23 @@ namespace BusinesLogic
             _orders = new List<Order>();
         }
 
-        public void CreateNewOrder(int orderId, string customer)
-        {
-            if(CheckMatchOrderId(orderId) == false)
-            {
-                _orders.Add(new Order(orderId, DateTime.Now, new List<Part>(), customer, "Opened"));
-            }            
+        public void CreateNewOrder(string customer)
+        {           
+            _orders.Add(new Order(GenerateOrderId(), DateTime.Now, new List<Part>(), customer, "Opened"));        
         }
 
-        public bool CheckMatchOrderId(int orderId)
+        private Int64 GenerateOrderId()
         {
-            bool result = false;
-
-            foreach (var order in _orders)
+            string date = (DateTime.Now.ToString());
+            string[] separator = { ":", " ", "-" };
+            string[] resultArray = date.Split(separator, StringSplitOptions.RemoveEmptyEntries);
+            string result = "";
+            foreach (var item in resultArray)
             {
-                if(orderId == order.Id)
-                {
-                    result = true;
-                }
+                result += item;
             }
 
-            return result;
+            return Convert.ToInt64(result);
         }
 
         public List<Part> GetAvailableParts(PartRepository partRepository)
@@ -104,7 +100,7 @@ namespace BusinesLogic
             }
         }
 
-        public Order Retrieve(int orderId)
+        public Order Retrieve(Int64 orderId)
         {
             foreach (var order in _orders)
             {

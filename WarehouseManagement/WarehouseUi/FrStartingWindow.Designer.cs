@@ -34,7 +34,7 @@
             // 
             // btnOrders
             // 
-            this.btnOrders.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnOrders.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnOrders.Location = new System.Drawing.Point(50, 50);
             this.btnOrders.Name = "btnOrders";
             this.btnOrders.Size = new System.Drawing.Size(300, 100);
@@ -45,7 +45,7 @@
             // 
             // btnParts
             // 
-            this.btnParts.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnParts.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnParts.Location = new System.Drawing.Point(425, 50);
             this.btnParts.Name = "btnParts";
             this.btnParts.Size = new System.Drawing.Size(300, 100);
@@ -60,6 +60,8 @@
             this.ClientSize = new System.Drawing.Size(778, 194);
             this.Controls.Add(this.btnParts);
             this.Controls.Add(this.btnOrders);
+            this.MaximumSize = new System.Drawing.Size(800, 250);
+            this.MinimumSize = new System.Drawing.Size(800, 250);
             this.Name = "FormStart";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Warehouse Manager";

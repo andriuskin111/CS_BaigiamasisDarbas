@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 using BusinesLogic;
 
@@ -17,9 +18,21 @@ namespace WarehouseUi
         [STAThread]
         static void Main()
         {
-            orderController.CreateNewOrder(1, "UAB EAMV");
-            orderController.CreateNewOrder(2, "UAB Rasmitas");
-            orderController.CreateNewOrder(3, "UAB TRT Shop");
+            orderController.CreateNewOrder("UAB EAMV");
+            Thread.Sleep(1000);
+            orderController.CreateNewOrder("UAB EAMV");
+            Thread.Sleep(1000);
+            orderController.CreateNewOrder("UAB EAMV");
+            Thread.Sleep(1000);
+            orderController.CreateNewOrder("UAB Rasmitas");
+            Thread.Sleep(1000);
+            orderController.CreateNewOrder("UAB Rasmitas");
+            Thread.Sleep(1000);
+            orderController.CreateNewOrder("UAB Rasmitas");
+            Thread.Sleep(1000);
+            orderController.CreateNewOrder("UAB TRT Shop");
+            Thread.Sleep(1000);
+            orderController.CreateNewOrder("UAB TRT Shop");
 
             orderController.AddPart(1, parts[1]);
             orderController.AddPart(1, parts[2]);

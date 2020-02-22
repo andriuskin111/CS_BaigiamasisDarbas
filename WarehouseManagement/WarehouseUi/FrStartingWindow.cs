@@ -19,7 +19,7 @@ namespace WarehouseUi
 
         private void btnOrders_Click(object sender, EventArgs e)
         {
-            Form2 orders = new Form2();
+            FrOrders orders = new FrOrders();
             orders.ShowDialog();
         }
     }

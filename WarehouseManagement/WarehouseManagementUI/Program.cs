@@ -17,9 +17,9 @@ namespace WarehouseManagementUI
             List<Part> parts = partRepository.Retrieve();
             ReportGenerator reportGenerator = new ReportGenerator(orderController);
 
-            orderController.CreateNewOrder(1, "UAB EAMV");
-            orderController.CreateNewOrder(2, "UAB Rasmitas");
-            orderController.CreateNewOrder(3, "UAB TRT Shop");
+            orderController.CreateNewOrder("UAB EAMV");
+            orderController.CreateNewOrder("UAB Rasmitas");
+            orderController.CreateNewOrder("UAB TRT Shop");
 
             infoDisplay.ShowPartsInStock(partRepository);
 

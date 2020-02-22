@@ -14,7 +14,7 @@ namespace BusinesLogic
         public string OrderStatus { get; private set; }
         public string Parts { get; private set; }
 
-        public ReportOrder(int orderId, DateTime orderDate, string customer, string orderStatus, List<Part> parts)
+        public ReportOrder(Int64 orderId, DateTime orderDate, string customer, string orderStatus, List<Part> parts)
         {
             OrderId = orderId.ToString();
             OrderDate = orderDate.ToString();

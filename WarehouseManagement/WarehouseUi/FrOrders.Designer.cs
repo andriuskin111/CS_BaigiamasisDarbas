@@ -1,6 +1,6 @@
 ﻿namespace WarehouseUi
 {
-    partial class Form2
+    partial class FrOrders
     {
         /// <summary>
         /// Required designer variable.
@@ -78,13 +78,13 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridOrders.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridOrders.Location = new System.Drawing.Point(40, 109);
+            this.dataGridOrders.Location = new System.Drawing.Point(40, 119);
             this.dataGridOrders.Name = "dataGridOrders";
             this.dataGridOrders.ReadOnly = true;
             this.dataGridOrders.RowHeadersWidth = 62;
             this.dataGridOrders.RowTemplate.Height = 28;
             this.dataGridOrders.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridOrders.Size = new System.Drawing.Size(1106, 407);
+            this.dataGridOrders.Size = new System.Drawing.Size(1106, 400);
             this.dataGridOrders.TabIndex = 3;
             // 
             // btnCreateOrder
@@ -95,9 +95,10 @@
             this.btnCreateOrder.Name = "btnCreateOrder";
             this.btnCreateOrder.Size = new System.Drawing.Size(226, 65);
             this.btnCreateOrder.TabIndex = 2;
-            this.btnCreateOrder.Text = "CREATE";
+            this.btnCreateOrder.Text = "NEW ORDER";
             this.btnCreateOrder.UseMnemonic = false;
             this.btnCreateOrder.UseVisualStyleBackColor = true;
+            this.btnCreateOrder.Click += new System.EventHandler(this.btnCreateOrder_Click);
             // 
             // comboBox1
             // 
@@ -110,7 +111,7 @@
             "Status"});
             this.comboBox1.Location = new System.Drawing.Point(40, 65);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(163, 28);
+            this.comboBox1.Size = new System.Drawing.Size(180, 28);
             this.comboBox1.TabIndex = 4;
             this.comboBox1.Text = "All";
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
@@ -119,36 +120,37 @@
             // 
             this.lblSortBy.AutoSize = true;
             this.lblSortBy.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblSortBy.Location = new System.Drawing.Point(87, 42);
+            this.lblSortBy.Location = new System.Drawing.Point(103, 42);
             this.lblSortBy.Name = "lblSortBy";
-            this.lblSortBy.Size = new System.Drawing.Size(63, 20);
+            this.lblSortBy.Size = new System.Drawing.Size(44, 20);
             this.lblSortBy.TabIndex = 5;
-            this.lblSortBy.Text = "View by";
+            this.lblSortBy.Text = "Filter";
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(451, 65);
+            this.dateTimePicker1.Location = new System.Drawing.Point(436, 65);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(154, 26);
+            this.dateTimePicker1.Size = new System.Drawing.Size(313, 26);
             this.dateTimePicker1.TabIndex = 7;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // comboBox2
             // 
+            this.comboBox2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(245, 65);
+            this.comboBox2.Location = new System.Drawing.Point(238, 65);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(163, 28);
+            this.comboBox2.Size = new System.Drawing.Size(180, 28);
             this.comboBox2.TabIndex = 4;
             this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // comboBox3
             // 
             this.comboBox3.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.comboBox3.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList;
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(647, 65);
+            this.comboBox3.Location = new System.Drawing.Point(767, 65);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(163, 28);
+            this.comboBox3.Size = new System.Drawing.Size(180, 28);
             this.comboBox3.TabIndex = 4;
             this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -166,7 +168,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(488, 42);
+            this.label2.Location = new System.Drawing.Point(557, 42);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(88, 20);
             this.label2.TabIndex = 5;
@@ -176,7 +178,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(690, 42);
+            this.label3.Location = new System.Drawing.Point(824, 42);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(78, 20);
             this.label3.TabIndex = 5;
@@ -188,23 +190,24 @@
             this.comboBox4.Items.AddRange(new object[] {
             "Opened",
             "Closed"});
-            this.comboBox4.Location = new System.Drawing.Point(860, 65);
+            this.comboBox4.Location = new System.Drawing.Point(966, 65);
             this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(163, 28);
+            this.comboBox4.Size = new System.Drawing.Size(180, 28);
             this.comboBox4.TabIndex = 4;
+            this.comboBox4.Text = "Opened";
             this.comboBox4.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(896, 42);
+            this.label4.Location = new System.Drawing.Point(1027, 42);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(100, 20);
+            this.label4.Size = new System.Drawing.Size(56, 20);
             this.label4.TabIndex = 5;
-            this.label4.Text = "Order Status";
+            this.label4.Text = "Status";
             // 
-            // Form2
+            // FrOrders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -224,7 +227,7 @@
             this.Controls.Add(this.btnCreateOrder);
             this.Controls.Add(this.button1);
             this.MinimumSize = new System.Drawing.Size(1200, 720);
-            this.Name = "Form2";
+            this.Name = "FrOrders";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ORDERS";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridOrders)).EndInit();
