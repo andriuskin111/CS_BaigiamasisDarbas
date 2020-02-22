@@ -11,7 +11,6 @@ namespace WarehouseManagementUI
     {
         static void Main(string[] args)
         {
-            InfoDisplay infoDisplay = new InfoDisplay();
             OrderController orderController = new OrderController();
             PartRepository partRepository = new PartRepository();
             List<Part> parts = partRepository.Retrieve();
@@ -21,7 +20,7 @@ namespace WarehouseManagementUI
             orderController.CreateNewOrder(2, "UAB Rasmitas");
             orderController.CreateNewOrder(3, "UAB TRT Shop");
 
-            infoDisplay.ShowPartsInStock(partRepository);
+            InfoDisplay.ShowPartsInStock(partRepository);
 
             orderController.AddPart(1, parts[1]);
             orderController.AddPart(1, parts[2]);
@@ -32,9 +31,9 @@ namespace WarehouseManagementUI
 
             orderController.CloseOrder(3, partRepository);
 
-            infoDisplay.ShowAllOrders(reportGenerator);
+            InfoDisplay.ShowAllOrders(reportGenerator);
 
-            infoDisplay.ShowPartsInStock(partRepository);
+            InfoDisplay.ShowPartsInStock(partRepository);
 
             Console.ReadLine();
         }
