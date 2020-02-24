@@ -38,23 +38,28 @@ namespace WarehouseUi
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(comboBox1.Text == "All")
+            CheckOrderFilter();
+        }
+
+        private void CheckOrderFilter()
+        {
+            if (comboBox1.Text == "All")
             {
                 FillOrderDataTable();
             }
-            else if(comboBox1.Text == "Order Id")
+            else if (comboBox1.Text == "Order Id")
             {
                 FillOrderDataTable(Convert.ToInt64(comboBox2.Text));
             }
-            else if(comboBox1.Text == "Date")
+            else if (comboBox1.Text == "Date")
             {
                 FillOrderDataTable(dateTimePicker1.Value);
             }
-            else if(comboBox1.Text == "Customer")
+            else if (comboBox1.Text == "Customer")
             {
                 FillOrderDataTable(comboBox3.Text);
             }
-            else if(comboBox1.Text == "Status")
+            else if (comboBox1.Text == "Status")
             {
                 FillOrderDataTableByStatus(comboBox4.Text);
             }
@@ -164,7 +169,7 @@ namespace WarehouseUi
         {
             FrOrder newOrder = new FrOrder();
             newOrder.ShowDialog();
-            FillOrderDataTable();
+            CheckOrderFilter();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -182,7 +187,7 @@ namespace WarehouseUi
                     frOrderEdit.loadedStatus = dataGridOrders.CurrentRow.Cells["Status"].Value.ToString();
                     frOrderEdit.loadedOrderDate = dateTime;
                     frOrderEdit.ShowDialog();
-                    FillOrderDataTable();
+                    CheckOrderFilter();
                 }               
             }
         }
@@ -202,7 +207,7 @@ namespace WarehouseUi
                         frOrderEdit.loadedOrderId = dataGridOrders.CurrentRow.Cells["Id"].Value.ToString();
                         frOrderEdit.loadedCustomer = dataGridOrders.CurrentRow.Cells["Customer"].Value.ToString();
                         frOrderEdit.ShowDialog();
-                        FillOrderDataTable();
+                        CheckOrderFilter();
                     }
                 }
             }                
