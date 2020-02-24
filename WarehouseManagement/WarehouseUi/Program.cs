@@ -18,28 +18,21 @@ namespace WarehouseUi
         [STAThread]
         static void Main()
         {
-            orderController.CreateNewOrder("UAB EAMV");
-            Thread.Sleep(1000);
-            orderController.CreateNewOrder("UAB EAMV");
-            Thread.Sleep(1000);
-            orderController.CreateNewOrder("UAB EAMV");
-            Thread.Sleep(1000);
-            orderController.CreateNewOrder("UAB Rasmitas");
-            Thread.Sleep(1000);
-            orderController.CreateNewOrder("UAB Rasmitas");
-            Thread.Sleep(1000);
-            orderController.CreateNewOrder("UAB Rasmitas");
-            Thread.Sleep(1000);
-            orderController.CreateNewOrder("UAB TRT Shop");
-            Thread.Sleep(1000);
-            orderController.CreateNewOrder("UAB TRT Shop");
+            orderController.CreateNewOrder(1, "UAB EAMV");
+            orderController.CreateNewOrder(2, "UAB EAMV");
+            orderController.CreateNewOrder(3, "UAB EAMV");
+            orderController.CreateNewOrder(4, "UAB Rasmitas");
+            orderController.CreateNewOrder(5, "UAB Rasmitas");
+            orderController.CreateNewOrder(6, "UAB Rasmitas");
+            orderController.CreateNewOrder(7, "UAB TRT Shop");
+            orderController.CreateNewOrder(8, "UAB TRT Shop");
 
-            orderController.AddPart(1, parts[1]);
-            orderController.AddPart(1, parts[2]);
-            orderController.AddPart(2, parts[3]);
-            orderController.AddPart(2, parts[4]);
-            orderController.AddPart(3, parts[5]);
-            orderController.AddPart(3, parts[0]);
+            //orderController.AddPart(1, parts[1]);
+            //orderController.AddPart(1, parts[2]);
+            //orderController.AddPart(2, parts[3]);
+            //orderController.AddPart(2, parts[4]);
+            //orderController.AddPart(3, parts[5]);
+            //orderController.AddPart(3, parts[0]);
 
             orderController.CloseOrder(2, partRepository);
 

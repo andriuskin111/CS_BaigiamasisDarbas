@@ -17,9 +17,9 @@ namespace WarehouseManagement.test
             List<Part> parts = partRepository.Retrieve();
             ReportGenerator reportGenerator = new ReportGenerator(orderController);
 
-            orderController.CreateNewOrder("UAB EAMV");
-            orderController.CreateNewOrder("UAB Rasmitas");
-            orderController.CreateNewOrder("UAB TRT Shop");
+            orderController.CreateNewOrder(1, "UAB EAMV");
+            orderController.CreateNewOrder(2, "UAB Rasmitas");
+            orderController.CreateNewOrder(3, "UAB TRT Shop");
 
             orderController.AddPart(1, parts[1]);
             orderController.AddPart(1, parts[2]);
@@ -46,9 +46,9 @@ namespace WarehouseManagement.test
             List<Part> parts = partRepository.Retrieve();
             ReportGenerator reportGenerator = new ReportGenerator(orderController);
 
-            orderController.CreateNewOrder("UAB EAMV");
-            orderController.CreateNewOrder("UAB Rasmitas");
-            orderController.CreateNewOrder("UAB TRT Shop");
+            orderController.CreateNewOrder(1, "UAB EAMV");
+            orderController.CreateNewOrder(2, "UAB Rasmitas");
+            orderController.CreateNewOrder(3, "UAB TRT Shop");
 
             orderController.AddPart(1, parts[1]);
             orderController.AddPart(1, parts[2]);
@@ -73,9 +73,9 @@ namespace WarehouseManagement.test
             OrderController orderController = new OrderController();
             ReportGenerator reportGenerator = new ReportGenerator(orderController);
 
-            orderController.CreateNewOrder("UAB EAMV");
-            orderController.CreateNewOrder("UAB Rasmitas");
-            orderController.CreateNewOrder("UAB TRT Shop");
+            orderController.CreateNewOrder(1, "UAB EAMV");
+            orderController.CreateNewOrder(2, "UAB Rasmitas");
+            orderController.CreateNewOrder(3, "UAB TRT Shop");
 
             int expected = 3;
 
@@ -93,10 +93,10 @@ namespace WarehouseManagement.test
             OrderController orderController = new OrderController();
             ReportGenerator reportGenerator = new ReportGenerator(orderController);
 
-            orderController.CreateNewOrder("UAB EAMV");
-            orderController.CreateNewOrder("UAB Rasmitas");
-            orderController.CreateNewOrder("UAB TRT Shop");
-            orderController.CreateNewOrder("UAB TRT Shop");
+            orderController.CreateNewOrder(1, "UAB EAMV");
+            orderController.CreateNewOrder(2, "UAB Rasmitas");
+            orderController.CreateNewOrder(3, "UAB TRT Shop");
+            orderController.CreateNewOrder(4, "UAB TRT Shop");
 
             int expected = 2;
 
@@ -114,10 +114,10 @@ namespace WarehouseManagement.test
             OrderController orderController = new OrderController();
             ReportGenerator reportGenerator = new ReportGenerator(orderController);
 
-            orderController.CreateNewOrder("UAB EAMV");
-            orderController.CreateNewOrder("UAB Rasmitas");
-            orderController.CreateNewOrder("UAB TRT Shop");
-            orderController.CreateNewOrder("UAB TRT Shop");
+            orderController.CreateNewOrder(1, "UAB EAMV");
+            orderController.CreateNewOrder(2, "UAB Rasmitas");
+            orderController.CreateNewOrder(3, "UAB TRT Shop");
+            orderController.CreateNewOrder(4, "UAB TRT Shop");
 
             int expected = 4;
 

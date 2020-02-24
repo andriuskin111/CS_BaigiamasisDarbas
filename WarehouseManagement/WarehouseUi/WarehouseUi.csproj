@@ -64,17 +64,8 @@
     <Compile Include="FrOrders.Designer.cs">
       <DependentUpon>FrOrders.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrNewOrder.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrNewOrder.Designer.cs">
-      <DependentUpon>FrNewOrder.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FrNewOrder.resx">
-      <DependentUpon>FrNewOrder.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrOrder.resx">
       <DependentUpon>FrOrder.cs</DependentUpon>
     </EmbeddedResource>

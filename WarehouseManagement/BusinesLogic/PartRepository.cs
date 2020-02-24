@@ -29,7 +29,7 @@ namespace BusinesLogic
             _parts.Add(part);
         }
 
-        public void RemovePart(int partId)
+        public void RemovePart(Int64 partId)
         {
             for (int i = 0; i < _parts.Count; i++)
             {
@@ -52,6 +52,20 @@ namespace BusinesLogic
 
             return null;
         }
+
+        public Part Retrieve(Int64 partId)
+        {
+            foreach (var part in _parts)
+            {
+                if (partId == part.Id)
+                {
+                    return part;
+                }
+            }
+
+            return null;
+        }
+
         public List<Part> Retrieve()
         {
             return _parts;

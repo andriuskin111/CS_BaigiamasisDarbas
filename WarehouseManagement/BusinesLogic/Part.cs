@@ -8,7 +8,7 @@ namespace BusinesLogic
 {
     public class Part
     {
-        public int Id { get; set; }
+        public Int64 Id { get; set; }
         public string Code { get; private set; }
         public string Brand { get; private set; }
         public string Model { get; private set; }
@@ -16,7 +16,7 @@ namespace BusinesLogic
         public PartCategory Category { get; private set; }
         public PartLocation Location { get; private set; }
 
-        public Part(int id, string code, string brand, string model, string description, PartCategory category, PartLocation location)
+        public Part(Int64 id, string code, string brand, string model, string description, PartCategory category, PartLocation location)
         {
             this.Id = id;
             this.Code = code;

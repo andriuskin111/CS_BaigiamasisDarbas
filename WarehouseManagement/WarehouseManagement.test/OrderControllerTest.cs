@@ -14,9 +14,9 @@ namespace WarehouseManagement.test
             // Arrange
             OrderController orderController = new OrderController();
 
-            orderController.CreateNewOrder("UAB EAMV");
-            orderController.CreateNewOrder("UAB Rasmitas");
-            orderController.CreateNewOrder("UAB TRT Shop");
+            orderController.CreateNewOrder(1, "UAB EAMV");
+            orderController.CreateNewOrder(2, "UAB Rasmitas");
+            orderController.CreateNewOrder(3, "UAB TRT Shop");
 
             int expected = 3;
 
@@ -33,9 +33,9 @@ namespace WarehouseManagement.test
             // Arrange
             OrderController orderController = new OrderController();
 
-            orderController.CreateNewOrder("UAB EAMV");
-            orderController.CreateNewOrder("UAB Rasmitas");
-            orderController.CreateNewOrder("UAB TRT Shop");
+            orderController.CreateNewOrder(1, "UAB EAMV");
+            orderController.CreateNewOrder(2, "UAB Rasmitas");
+            orderController.CreateNewOrder(3, "UAB TRT Shop");
 
             string expected = "UAB Rasmitas";
 
@@ -57,9 +57,9 @@ namespace WarehouseManagement.test
             PartRepository partRepository = new PartRepository();
             List<Part> parts = partRepository.Retrieve();
             
-            orderController.CreateNewOrder("UAB EAMV");
-            orderController.CreateNewOrder("UAB Rasmitas");
-            orderController.CreateNewOrder("UAB TRT Shop");
+            orderController.CreateNewOrder(1, "UAB EAMV");
+            orderController.CreateNewOrder(2, "UAB Rasmitas");
+            orderController.CreateNewOrder(3, "UAB TRT Shop");
 
             orderController.AddPart(2, parts[1]);
             order = orderController.Retrieve(2);
@@ -89,9 +89,9 @@ namespace WarehouseManagement.test
             PartRepository partRepository = new PartRepository();
             List<Part> parts = partRepository.Retrieve();
 
-            orderController.CreateNewOrder("UAB EAMV");
-            orderController.CreateNewOrder("UAB Rasmitas");
-            orderController.CreateNewOrder("UAB TRT Shop");
+            orderController.CreateNewOrder(1, "UAB EAMV");
+            orderController.CreateNewOrder(2, "UAB Rasmitas");
+            orderController.CreateNewOrder(3, "UAB TRT Shop");
 
             orderController.AddPart(2, parts[1]);
             orderController.AddPart(2, parts[2]);
@@ -116,9 +116,9 @@ namespace WarehouseManagement.test
             // Arrange
             OrderController orderController = new OrderController();
 
-            orderController.CreateNewOrder("UAB EAMV");
-            orderController.CreateNewOrder("UAB Rasmitas");
-            orderController.CreateNewOrder("UAB TRT Shop");
+            orderController.CreateNewOrder(1, "UAB EAMV");
+            orderController.CreateNewOrder(3, "UAB Rasmitas");
+            orderController.CreateNewOrder(3, "UAB TRT Shop");
 
             orderController.CancelOrder(3);
             int expected = 2;
@@ -140,9 +140,9 @@ namespace WarehouseManagement.test
             PartRepository partRepository = new PartRepository();
             List<Part> parts = partRepository.Retrieve();
 
-            orderController.CreateNewOrder("UAB EAMV");
-            orderController.CreateNewOrder("UAB Rasmitas");
-            orderController.CreateNewOrder("UAB TRT Shop");
+            orderController.CreateNewOrder(1, "UAB EAMV");
+            orderController.CreateNewOrder(2, "UAB Rasmitas");
+            orderController.CreateNewOrder(3, "UAB TRT Shop");
 
             orderController.AddPart(2, parts[1]);
             orderController.AddPart(2, parts[2]);
@@ -169,9 +169,9 @@ namespace WarehouseManagement.test
             PartRepository partRepository = new PartRepository();
             List<Part> parts = partRepository.Retrieve();
 
-            orderController.CreateNewOrder("UAB EAMV");
-            orderController.CreateNewOrder("UAB Rasmitas");
-            orderController.CreateNewOrder("UAB TRT Shop");
+            orderController.CreateNewOrder(1, "UAB EAMV");
+            orderController.CreateNewOrder(2, "UAB Rasmitas");
+            orderController.CreateNewOrder(3, "UAB TRT Shop");
 
             orderController.AddPart(2, parts[1]);
             orderController.AddPart(2, parts[2]);
@@ -195,9 +195,9 @@ namespace WarehouseManagement.test
             PartRepository partRepository = new PartRepository();
             List<Part> parts = partRepository.Retrieve();
 
-            orderController.CreateNewOrder("UAB EAMV");
-            orderController.CreateNewOrder("UAB Rasmitas");
-            orderController.CreateNewOrder("UAB TRT Shop");
+            orderController.CreateNewOrder(1, "UAB EAMV");
+            orderController.CreateNewOrder(2, "UAB Rasmitas");
+            orderController.CreateNewOrder(3, "UAB TRT Shop");
 
             orderController.AddPart(2, parts[1]);
             orderController.AddPart(2, parts[2]);

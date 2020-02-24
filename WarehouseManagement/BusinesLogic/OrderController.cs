@@ -15,23 +15,9 @@ namespace BusinesLogic
             _orders = new List<Order>();
         }
 
-        public void CreateNewOrder(string customer)
+        public void CreateNewOrder(Int64 id, string customer)
         {           
-            _orders.Add(new Order(GenerateOrderId(), DateTime.Now, new List<Part>(), customer, "Opened"));        
-        }
-
-        private Int64 GenerateOrderId()
-        {
-            string date = (DateTime.Now.ToString());
-            string[] separator = { ":", " ", "-" };
-            string[] resultArray = date.Split(separator, StringSplitOptions.RemoveEmptyEntries);
-            string result = "";
-            foreach (var item in resultArray)
-            {
-                result += item;
-            }
-
-            return Convert.ToInt64(result);
+            _orders.Add(new Order(id, DateTime.Now, new List<Part>(), customer, "Opened"));        
         }
 
         public List<Part> GetAvailableParts(PartRepository partRepository)
@@ -67,7 +53,7 @@ namespace BusinesLogic
             return result;
         }
 
-        public void AddPart(int orderId, Part part)
+        public void AddPart(Int64 orderId, Part part)
         {
             for (int i = 0; i < _orders.Count; i++)
             {
@@ -78,7 +64,7 @@ namespace BusinesLogic
             }         
         }
 
-        public void RemovePart(int orderId, int partId)
+        public void RemovePart(Int64 orderId, Int64 partId)
         {
             foreach (var order in _orders)
             {
@@ -89,7 +75,7 @@ namespace BusinesLogic
             } 
         }
 
-        private static void RemovePart(int partId, Order order)
+        private static void RemovePart(Int64 partId, Order order)
         {
             for (int i = 0; i < order.Parts.Count; i++)
             {
@@ -118,7 +104,7 @@ namespace BusinesLogic
             return _orders;
         }
 
-        public void CancelOrder(int orderId)
+        public void CancelOrder(Int64 orderId)
         {
             for (int i = 0; i < _orders.Count; i++)
             {
@@ -129,7 +115,7 @@ namespace BusinesLogic
             }
         }
 
-        public void CloseOrder(int orderId, PartRepository partRepository)
+        public void CloseOrder(Int64 orderId, PartRepository partRepository)
         {
             foreach (var order in _orders)
             {
@@ -145,7 +131,7 @@ namespace BusinesLogic
             }
         }
 
-        public int GetOrderedPartQuantity(int orderId, string partCode)
+        public int GetOrderedPartQuantity(Int64 orderId, string partCode)
         {
             int result = 0;
 

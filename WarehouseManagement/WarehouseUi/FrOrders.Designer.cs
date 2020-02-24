@@ -68,11 +68,14 @@
             this.button2.Text = "OPEN";
             this.button2.UseMnemonic = false;
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // dataGridOrders
             // 
             this.dataGridOrders.AllowUserToAddRows = false;
             this.dataGridOrders.AllowUserToDeleteRows = false;
+            this.dataGridOrders.AllowUserToResizeColumns = false;
+            this.dataGridOrders.AllowUserToResizeRows = false;
             this.dataGridOrders.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));

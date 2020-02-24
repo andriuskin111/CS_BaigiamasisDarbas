@@ -81,8 +81,6 @@ namespace WarehouseUi
             Order order = Program.orderController.Retrieve(orderId);
 
             FillOrderDataRows(dataTable, order);
-
-            dataGridOrders.DataSource = dataTable;
         }
 
         private void FillOrderDataTable(string customer)
@@ -164,9 +162,17 @@ namespace WarehouseUi
 
         private void btnCreateOrder_Click(object sender, EventArgs e)
         {
-            FrNewOrder newOrder = new FrNewOrder();
+            FrOrder newOrder = new FrOrder();
             newOrder.ShowDialog();
             FillOrderDataTable();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            using (FrOrder frOrder = new FrOrder())
+            {
+
+            }
         }
     }
 }
