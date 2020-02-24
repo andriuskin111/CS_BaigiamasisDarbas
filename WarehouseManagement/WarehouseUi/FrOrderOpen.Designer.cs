@@ -30,6 +30,7 @@
         {
             this.dataGridPartsInOrder = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridPartsInOrder)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,7 +45,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridPartsInOrder.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridPartsInOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridPartsInOrder.Location = new System.Drawing.Point(30, 60);
+            this.dataGridPartsInOrder.Location = new System.Drawing.Point(30, 84);
+            this.dataGridPartsInOrder.MultiSelect = false;
             this.dataGridPartsInOrder.Name = "dataGridPartsInOrder";
             this.dataGridPartsInOrder.ReadOnly = true;
             this.dataGridPartsInOrder.RowHeadersWidth = 62;
@@ -56,17 +58,27 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(26, 37);
+            this.label2.Location = new System.Drawing.Point(26, 29);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(269, 20);
+            this.label2.Size = new System.Drawing.Size(51, 20);
             this.label2.TabIndex = 2;
-            this.label2.Text = "PARTS IN ORDER ID: CUSTOMER:";
+            this.label2.Text = "label1";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(26, 61);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(46, 20);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Parts";
             // 
             // FrOrderOpen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(878, 624);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dataGridPartsInOrder);
             this.MinimumSize = new System.Drawing.Size(900, 680);
@@ -83,5 +95,6 @@
         #endregion
         private System.Windows.Forms.DataGridView dataGridPartsInOrder;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }

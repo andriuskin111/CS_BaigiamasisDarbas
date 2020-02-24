@@ -52,6 +52,7 @@
             this.btnParts.TabIndex = 0;
             this.btnParts.Text = "PARTS";
             this.btnParts.UseVisualStyleBackColor = true;
+            this.btnParts.Click += new System.EventHandler(this.btnParts_Click);
             // 
             // FormStart
             // 

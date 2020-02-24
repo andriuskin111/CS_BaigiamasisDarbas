@@ -51,6 +51,7 @@
             this.dataGridPartsInOrder.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridPartsInOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridPartsInOrder.Location = new System.Drawing.Point(30, 60);
+            this.dataGridPartsInOrder.MultiSelect = false;
             this.dataGridPartsInOrder.Name = "dataGridPartsInOrder";
             this.dataGridPartsInOrder.ReadOnly = true;
             this.dataGridPartsInOrder.RowHeadersWidth = 62;
@@ -135,6 +136,7 @@
             this.dataGridAvalaibleParts.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridAvalaibleParts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridAvalaibleParts.Location = new System.Drawing.Point(1071, 60);
+            this.dataGridAvalaibleParts.MultiSelect = false;
             this.dataGridAvalaibleParts.Name = "dataGridAvalaibleParts";
             this.dataGridAvalaibleParts.ReadOnly = true;
             this.dataGridAvalaibleParts.RowHeadersWidth = 62;

@@ -16,8 +16,8 @@ namespace WarehouseUi
         public string loadedOrderId;
         public string loadedCustomer;
         public string loadedStatus;
+        public DateTime loadedOrderDate;
         private Int64 orderid;
-        private Int64 partId;
         private DataTable dataTableOrder = new DataTable();
         public FrOrderOpen()
         {
@@ -48,15 +48,15 @@ namespace WarehouseUi
              dataGridPartsInOrder.DataSource = dataTable;
         }
 
-        private void InitializeLoadedData(Int64 loadedId, string customer, string status)
+        private void InitializeLoadedData(Int64 loadedId, string customer, string status, DateTime date)
         {
             orderid = loadedId;
-            label2.Text = $"Parts in Order {orderid} {customer} {status}";
+            label2.Text = $"Order {orderid} {customer} {date.ToString()} {status}";
         }
 
         private void FrOrderEdit_Load(object sender, EventArgs e)
         {
-            InitializeLoadedData(Convert.ToInt64(loadedOrderId), loadedCustomer, loadedStatus);
+            InitializeLoadedData(Convert.ToInt64(loadedOrderId), loadedCustomer, loadedStatus, loadedOrderDate);
             FillOrderDataTable(Convert.ToInt64(loadedOrderId));
         }
 

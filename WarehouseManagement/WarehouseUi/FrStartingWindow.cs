@@ -22,5 +22,11 @@ namespace WarehouseUi
             FrOrders orders = new FrOrders();
             orders.ShowDialog();
         }
+
+        private void btnParts_Click(object sender, EventArgs e)
+        {
+            FrParts frParts = new FrParts();
+            frParts.ShowDialog();
+        }
     }
 }

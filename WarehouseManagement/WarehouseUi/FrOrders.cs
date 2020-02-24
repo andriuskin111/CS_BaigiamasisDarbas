@@ -171,14 +171,19 @@ namespace WarehouseUi
         {
             if (dataGridOrders.RowCount > 0)
             {              
-                    using (FrOrderOpen frOrderEdit = new FrOrderOpen())
-                    {
-                        frOrderEdit.loadedOrderId = dataGridOrders.CurrentRow.Cells["Id"].Value.ToString();
-                        frOrderEdit.loadedCustomer = dataGridOrders.CurrentRow.Cells["Customer"].Value.ToString();
-                        frOrderEdit.loadedStatus = dataGridOrders.CurrentRow.Cells["Status"].Value.ToString();
-                        frOrderEdit.ShowDialog();
-                        FillOrderDataTable();
-                    }               
+                using (FrOrderOpen frOrderEdit = new FrOrderOpen())
+                {
+                    string orderId = dataGridOrders.CurrentRow.Cells["Id"].Value.ToString();
+
+                    DateTime dateTime = Program.orderController.Retrieve(Convert.ToInt64(orderId)).Date;
+
+                    frOrderEdit.loadedOrderId = orderId;
+                    frOrderEdit.loadedCustomer = dataGridOrders.CurrentRow.Cells["Customer"].Value.ToString();
+                    frOrderEdit.loadedStatus = dataGridOrders.CurrentRow.Cells["Status"].Value.ToString();
+                    frOrderEdit.loadedOrderDate = dateTime;
+                    frOrderEdit.ShowDialog();
+                    FillOrderDataTable();
+                }               
             }
         }
 

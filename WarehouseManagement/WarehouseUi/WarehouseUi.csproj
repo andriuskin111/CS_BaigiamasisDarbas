@@ -64,6 +64,12 @@
     <Compile Include="FrOrder.Designer.cs">
       <DependentUpon>FrOrder.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrParts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrParts.Designer.cs">
+      <DependentUpon>FrParts.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrStartingWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +92,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrOrder.resx">
       <DependentUpon>FrOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrParts.resx">
+      <DependentUpon>FrParts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrStartingWindow.resx">
       <DependentUpon>FrStartingWindow.cs</DependentUpon>

@@ -83,6 +83,7 @@
             this.dataGridOrders.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridOrders.Location = new System.Drawing.Point(40, 119);
+            this.dataGridOrders.MultiSelect = false;
             this.dataGridOrders.Name = "dataGridOrders";
             this.dataGridOrders.ReadOnly = true;
             this.dataGridOrders.RowHeadersWidth = 62;
