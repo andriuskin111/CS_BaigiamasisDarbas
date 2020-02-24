@@ -14,6 +14,7 @@ namespace WarehouseUi
     public partial class FrOrderEdit : Form
     {
         public string loadedOrderId;
+        public string loadedCustomer;
         private Int64 orderid;
         private Int64 partId;
         private DataTable dataTableOrder = new DataTable();
@@ -33,7 +34,7 @@ namespace WarehouseUi
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if(Program.orderController.GetAvailableParts(Program.partRepository).Count > 0)
+            if(dataGridAvalaibleParts.Rows.Count > 0)
             {
                 if (dataGridAvalaibleParts.CurrentRow.Selected)
                 {
@@ -42,6 +43,63 @@ namespace WarehouseUi
                     FillAvailablePartsrDataTable();
                 }
             }            
+        }
+
+        private void btnRemovePart_Click(object sender, EventArgs e)
+        {
+            if(dataGridPartsInOrder.Rows.Count > 0)
+            {
+                if (dataGridPartsInOrder.CurrentRow.Selected)
+                {
+                    string selectedPartId = dataGridPartsInOrder.CurrentRow.Cells["Id"].Value.ToString();
+                    Program.orderController.RemovePart(orderid, Convert.ToInt64(selectedPartId));
+                    dataTableOrder.Clear();
+                    dataGridPartsInOrder.DataSource = dataTableOrder;
+                    FillOrderDataTable(orderid);
+                    FillAvailablePartsrDataTable();
+                }
+            }
+        }
+
+        private void btnCloseOrder_Click(object sender, EventArgs e)
+        {
+            if(Program.orderController.Retrieve(orderid).Parts.Count < 1)
+            {
+                MessageBox.Show("Parts List is empty! Order cannot be closed!");
+            }
+            else
+            {
+                DialogResult dialog = MessageBox.Show("Do You really want to close Order?",
+                    "Close Order", MessageBoxButtons.YesNo);
+
+                if(dialog == DialogResult.Yes)
+                {
+                    Program.orderController.CloseOrder(orderid, Program.partRepository);
+                    Close();
+                }
+                else if(dialog == DialogResult.No)
+                {
+                    return;
+                }
+
+                
+            }          
+        }
+
+        private void btnDeleteOrder_Click(object sender, EventArgs e)
+        {
+            DialogResult dialog = MessageBox.Show("Do You really want to delete Order?",
+                   "Delete Order", MessageBoxButtons.YesNo);
+
+            if (dialog == DialogResult.Yes)
+            {
+                Program.orderController.CancelOrder(orderid);
+                Close();
+            }
+            else if (dialog == DialogResult.No)
+            {
+                return;
+            }           
         }
 
         private DataTable CreateDataTable()
@@ -114,15 +172,18 @@ namespace WarehouseUi
             dataGridAvalaibleParts.DataSource = dataTable;
         }
 
-        private void SetOrderId(Int64 loadedId)
+        private void InitializeLoadedData(Int64 loadedId, string customer)
         {
             orderid = loadedId;
+            label2.Text = $"PARTS IN ORDER {orderid} {customer}";
         }
 
         private void FrOrderEdit_Load(object sender, EventArgs e)
         {
-            SetOrderId(Convert.ToInt64(loadedOrderId));
+            InitializeLoadedData(Convert.ToInt64(loadedOrderId), loadedCustomer);
             FillOrderDataTable(Convert.ToInt64(loadedOrderId));
         }
+
+        
     }
 }

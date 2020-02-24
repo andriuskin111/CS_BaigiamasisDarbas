@@ -69,6 +69,7 @@
             this.btnDeleteOrder.TabIndex = 1;
             this.btnDeleteOrder.Text = "DELETE ORDER";
             this.btnDeleteOrder.UseVisualStyleBackColor = true;
+            this.btnDeleteOrder.Click += new System.EventHandler(this.btnDeleteOrder_Click);
             // 
             // btnCloseOrder
             // 
@@ -80,6 +81,7 @@
             this.btnCloseOrder.TabIndex = 1;
             this.btnCloseOrder.Text = "CLOSE ORDER";
             this.btnCloseOrder.UseVisualStyleBackColor = true;
+            this.btnCloseOrder.Click += new System.EventHandler(this.btnCloseOrder_Click);
             // 
             // btnAddPart
             // 
@@ -101,6 +103,7 @@
             this.btnRemovePart.TabIndex = 1;
             this.btnRemovePart.Text = ">> REMOVE";
             this.btnRemovePart.UseVisualStyleBackColor = true;
+            this.btnRemovePart.Click += new System.EventHandler(this.btnRemovePart_Click);
             // 
             // label1
             // 

@@ -41,7 +41,7 @@ namespace WarehouseUi
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if(Program.orderController.GetAvailableParts(Program.partRepository).Count > 0)
+            if(dataGridAvalaibleParts.Rows.Count > 1)
             {
                 if (dataGridAvalaibleParts.CurrentRow.Selected)
                 {

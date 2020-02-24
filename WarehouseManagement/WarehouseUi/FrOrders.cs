@@ -174,11 +174,23 @@ namespace WarehouseUi
 
         private void button1_Click(object sender, EventArgs e)
         {
-            using (FrOrderEdit frOrderEdit = new FrOrderEdit())
+            if(dataGridOrders.RowCount > 0)
             {
-                frOrderEdit.loadedOrderId = dataGridOrders.CurrentRow.Cells["Id"].Value.ToString();
-                frOrderEdit.ShowDialog();
-            }
+                if (dataGridOrders.CurrentRow.Cells["Status"].Value.ToString() == "Closed")
+                {
+                    MessageBox.Show("Order cannot be edited! Order Closed!");
+                }
+                else
+                {
+                    using (FrOrderEdit frOrderEdit = new FrOrderEdit())
+                    {
+                        frOrderEdit.loadedOrderId = dataGridOrders.CurrentRow.Cells["Id"].Value.ToString();
+                        frOrderEdit.loadedCustomer = dataGridOrders.CurrentRow.Cells["Customer"].Value.ToString();
+                        frOrderEdit.ShowDialog();
+                        FillOrderDataTable();
+                    }
+                }
+            }                
         }
     }
 }
