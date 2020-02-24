@@ -175,7 +175,7 @@ namespace WarehouseUi
         private void InitializeLoadedData(Int64 loadedId, string customer)
         {
             orderid = loadedId;
-            label2.Text = $"PARTS IN ORDER {orderid} {customer}";
+            label2.Text = $"Parts in Order {orderid} {customer}";
         }
 
         private void FrOrderEdit_Load(object sender, EventArgs e)

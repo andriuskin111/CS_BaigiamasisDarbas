@@ -169,7 +169,17 @@ namespace WarehouseUi
 
         private void button2_Click(object sender, EventArgs e)
         {
-           
+            if (dataGridOrders.RowCount > 0)
+            {              
+                    using (FrOrderOpen frOrderEdit = new FrOrderOpen())
+                    {
+                        frOrderEdit.loadedOrderId = dataGridOrders.CurrentRow.Cells["Id"].Value.ToString();
+                        frOrderEdit.loadedCustomer = dataGridOrders.CurrentRow.Cells["Customer"].Value.ToString();
+                        frOrderEdit.loadedStatus = dataGridOrders.CurrentRow.Cells["Status"].Value.ToString();
+                        frOrderEdit.ShowDialog();
+                        FillOrderDataTable();
+                    }               
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)

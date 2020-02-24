@@ -52,6 +52,63 @@ namespace WarehouseUi
             }            
         }
 
+        private void btnRemovePart_Click(object sender, EventArgs e)
+        {
+            if (dataGridPartsInOrder.Rows.Count > 0)
+            {
+                if (dataGridPartsInOrder.CurrentRow.Selected)
+                {
+                    string selectedPartId = dataGridPartsInOrder.CurrentRow.Cells["Id"].Value.ToString();
+                    Program.orderController.RemovePart(orderid, Convert.ToInt64(selectedPartId));
+                    dataTableOrder.Clear();
+                    dataGridPartsInOrder.DataSource = dataTableOrder;
+                    FillOrderDataTable(orderid);
+                    FillAvailablePartsrDataTable();
+                }
+            }
+        }
+
+        private void btnCloseOrder_Click(object sender, EventArgs e)
+        {
+            if (Program.orderController.Retrieve(orderid).Parts.Count < 1)
+            {
+                MessageBox.Show("Parts List is empty! Order cannot be closed!");
+            }
+            else
+            {
+                DialogResult dialog = MessageBox.Show("Do You really want to close Order?",
+                    "Close Order", MessageBoxButtons.YesNo);
+
+                if (dialog == DialogResult.Yes)
+                {
+                    Program.orderController.CloseOrder(orderid, Program.partRepository);
+                    Close();
+                }
+                else if (dialog == DialogResult.No)
+                {
+                    return;
+                }
+
+
+            }
+        }
+
+        private void btnDeleteOrder_Click(object sender, EventArgs e)
+        {
+            DialogResult dialog = MessageBox.Show("Do You really want to delete Order?",
+                   "Delete Order", MessageBoxButtons.YesNo);
+
+            if (dialog == DialogResult.Yes)
+            {
+                Program.orderController.CancelOrder(orderid);
+                Close();
+            }
+            else if (dialog == DialogResult.No)
+            {
+                return;
+            }
+        }
+
         private bool CheckOrCustomerEgsist(List<string> orderCustomerList, string orderCustomer)
         {
             bool result = false;
@@ -77,13 +134,11 @@ namespace WarehouseUi
             return dataTable;
         }
 
-        private void FillOrderDataTable()
+        private void FillOrderDataTable(Int64 id)
         {
-            DataTable dataTable = CreateDataTable();
-
-            foreach (var part in Program.parts)
+            foreach (var part in Program.orderController.Retrieve(id).Parts)
             {
-                FillPartsInOrderDataRows(dataTable, part);
+                FillPartsInOrderDataRows(dataTableOrder, part);
             }
         }
 
@@ -151,7 +206,7 @@ namespace WarehouseUi
 
                 btnCreateOrder.Hide();
                 label3.Hide();
-                label2.Text = $"PARTS IN ORDER {orderid} {cbCustomer.Text}";
+                label2.Text = $"Parts in Order {orderid} {cbCustomer.Text}";
 
                 cbCustomer.Hide();
             }          
