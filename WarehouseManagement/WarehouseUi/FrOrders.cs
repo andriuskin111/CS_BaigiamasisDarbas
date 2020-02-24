@@ -169,9 +169,14 @@ namespace WarehouseUi
 
         private void button2_Click(object sender, EventArgs e)
         {
-            using (FrOrder frOrder = new FrOrder())
-            {
+           
+        }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            using (FrOrderEdit frOrder = new FrOrderEdit())
+            {
+                frOrder.ShowDialog();
             }
         }
     }

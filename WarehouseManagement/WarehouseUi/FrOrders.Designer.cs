@@ -56,6 +56,7 @@
             this.button1.Text = "EDIT";
             this.button1.UseMnemonic = false;
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
