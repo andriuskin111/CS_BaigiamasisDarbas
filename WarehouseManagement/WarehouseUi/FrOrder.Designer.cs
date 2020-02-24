@@ -102,7 +102,7 @@
             this.btnRemovePart.Name = "btnRemovePart";
             this.btnRemovePart.Size = new System.Drawing.Size(195, 53);
             this.btnRemovePart.TabIndex = 1;
-            this.btnRemovePart.Text = ">> REMOVE PART";
+            this.btnRemovePart.Text = ">> REMOVE";
             this.btnRemovePart.UseVisualStyleBackColor = true;
             // 
             // label1

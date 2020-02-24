@@ -174,9 +174,10 @@ namespace WarehouseUi
 
         private void button1_Click(object sender, EventArgs e)
         {
-            using (FrOrderEdit frOrder = new FrOrderEdit())
+            using (FrOrderEdit frOrderEdit = new FrOrderEdit())
             {
-                frOrder.ShowDialog();
+                frOrderEdit.loadedOrderId = dataGridOrders.CurrentRow.Cells["Id"].Value.ToString();
+                frOrderEdit.ShowDialog();
             }
         }
     }

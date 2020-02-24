@@ -13,7 +13,7 @@ namespace WarehouseUi
 {
     public partial class FrOrderEdit : Form
     {
-        private bool orderCreated = false;
+        public string loadedOrderId;
         private Int64 orderid;
         private Int64 partId;
         private DataTable dataTableOrder = new DataTable();
@@ -26,17 +26,9 @@ namespace WarehouseUi
             dataTableOrder.Columns.Add("Model", typeof(string));
             dataTableOrder.Columns.Add("Description", typeof(string));
 
-            List<string> orderCustomerList = new List<string>();
+            dataGridPartsInOrder.DataSource = CreateDataTable();
+            FillAvailablePartsrDataTable();
 
-            foreach (var order in Program.orderController.Retrieve())
-            {
-                if (!CheckOrCustomerEgsist(orderCustomerList, order.Customer))
-                {
-                    orderCustomerList.Add(order.Customer);
-                }
-            }
-
-            cbCustomer.DataSource = orderCustomerList;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -52,20 +44,6 @@ namespace WarehouseUi
             }            
         }
 
-        private bool CheckOrCustomerEgsist(List<string> orderCustomerList, string orderCustomer)
-        {
-            bool result = false;
-            foreach (var customer in orderCustomerList)
-            {
-                if (orderCustomer == customer)
-                {
-                    result = true;
-                }
-            }
-
-            return result;
-        }
-
         private DataTable CreateDataTable()
         {
             DataTable dataTable = new DataTable();
@@ -77,20 +55,18 @@ namespace WarehouseUi
             return dataTable;
         }
 
-        private void FillOrderDataTable()
+        private void FillOrderDataTable(Int64 id)
         {
-            DataTable dataTable = CreateDataTable();
-
-            foreach (var part in Program.parts)
+            foreach (var part in Program.orderController.Retrieve(id).Parts)
             {
-                FillPartsInOrderDataRows(dataTable, part);
+                FillPartsInOrderDataRows(dataTableOrder, part);
             }
         }
 
         private void AddPartToOrder(string Id)
         {
             partId = Convert.ToInt64(Id);
-
+            Program.orderController.AddPart(orderid, Program.partRepository.Retrieve(partId));
             Part part = Program.partRepository.Retrieve(partId);
 
             dataTableOrder.Rows.Add(part.Id,
@@ -138,38 +114,15 @@ namespace WarehouseUi
             dataGridAvalaibleParts.DataSource = dataTable;
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void SetOrderId(Int64 loadedId)
         {
-            if (!orderCreated && cbCustomer.Text !="")
-            {
-                orderid = GenerateOrderId();
-
-                Program.orderController.CreateNewOrder(orderid, cbCustomer.Text);
-
-                dataGridPartsInOrder.DataSource = CreateDataTable();
-                FillAvailablePartsrDataTable();
-
-                btnCreateOrder.Hide();
-                label3.Hide();
-                label2.Text = $"PARTS IN ORDER {orderid} {cbCustomer.Text}";
-
-                cbCustomer.Hide();
-            }          
-            
+            orderid = loadedId;
         }
 
-        private Int64 GenerateOrderId()
+        private void FrOrderEdit_Load(object sender, EventArgs e)
         {
-            string date = (DateTime.Now.ToString());
-            string[] separator = { ":", " ", "-" };
-            string[] resultArray = date.Split(separator, StringSplitOptions.RemoveEmptyEntries);
-            string result = "";
-            foreach (var item in resultArray)
-            {
-                result += item;
-            }
-
-            return Convert.ToInt64(result);
+            SetOrderId(Convert.ToInt64(loadedOrderId));
+            FillOrderDataTable(Convert.ToInt64(loadedOrderId));
         }
     }
 }

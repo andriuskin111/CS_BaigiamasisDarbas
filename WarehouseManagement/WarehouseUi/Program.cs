@@ -27,8 +27,8 @@ namespace WarehouseUi
             orderController.CreateNewOrder(7, "UAB TRT Shop");
             orderController.CreateNewOrder(8, "UAB TRT Shop");
 
-            //orderController.AddPart(1, parts[1]);
-            //orderController.AddPart(1, parts[2]);
+            orderController.AddPart(1, parts[1]);
+            orderController.AddPart(1, parts[2]);
             //orderController.AddPart(2, parts[3]);
             //orderController.AddPart(2, parts[4]);
             //orderController.AddPart(3, parts[5]);

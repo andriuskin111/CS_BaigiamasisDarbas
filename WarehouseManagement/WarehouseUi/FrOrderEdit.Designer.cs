@@ -35,9 +35,6 @@
             this.btnRemovePart = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.cbCustomer = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.btnCreateOrder = new System.Windows.Forms.Button();
             this.dataGridAvalaibleParts = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridPartsInOrder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridAvalaibleParts)).BeginInit();
@@ -49,7 +46,7 @@
             this.dataGridPartsInOrder.AllowUserToDeleteRows = false;
             this.dataGridPartsInOrder.AllowUserToResizeColumns = false;
             this.dataGridPartsInOrder.AllowUserToResizeRows = false;
-            this.dataGridPartsInOrder.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.dataGridPartsInOrder.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.dataGridPartsInOrder.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridPartsInOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -102,7 +99,7 @@
             this.btnRemovePart.Name = "btnRemovePart";
             this.btnRemovePart.Size = new System.Drawing.Size(195, 53);
             this.btnRemovePart.TabIndex = 1;
-            this.btnRemovePart.Text = ">> REMOVE PART";
+            this.btnRemovePart.Text = ">> REMOVE";
             this.btnRemovePart.UseVisualStyleBackColor = true;
             // 
             // label1
@@ -124,44 +121,13 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "PARTS IN ORDER ID: CUSTOMER:";
             // 
-            // cbCustomer
-            // 
-            this.cbCustomer.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.cbCustomer.FormattingEnabled = true;
-            this.cbCustomer.Location = new System.Drawing.Point(170, 959);
-            this.cbCustomer.Name = "cbCustomer";
-            this.cbCustomer.Size = new System.Drawing.Size(184, 28);
-            this.cbCustomer.TabIndex = 3;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(208, 936);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(100, 20);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "CUSTOMER";
-            // 
-            // btnCreateOrder
-            // 
-            this.btnCreateOrder.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnCreateOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnCreateOrder.Location = new System.Drawing.Point(534, 934);
-            this.btnCreateOrder.Name = "btnCreateOrder";
-            this.btnCreateOrder.Size = new System.Drawing.Size(208, 53);
-            this.btnCreateOrder.TabIndex = 1;
-            this.btnCreateOrder.Text = "CREATE ORDER";
-            this.btnCreateOrder.UseVisualStyleBackColor = true;
-            this.btnCreateOrder.Click += new System.EventHandler(this.button4_Click);
-            // 
             // dataGridAvalaibleParts
             // 
             this.dataGridAvalaibleParts.AllowUserToAddRows = false;
             this.dataGridAvalaibleParts.AllowUserToDeleteRows = false;
             this.dataGridAvalaibleParts.AllowUserToResizeColumns = false;
             this.dataGridAvalaibleParts.AllowUserToResizeRows = false;
-            this.dataGridAvalaibleParts.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.dataGridAvalaibleParts.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridAvalaibleParts.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridAvalaibleParts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -174,18 +140,15 @@
             this.dataGridAvalaibleParts.Size = new System.Drawing.Size(800, 850);
             this.dataGridAvalaibleParts.TabIndex = 0;
             // 
-            // FrOrder
+            // FrOrderEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1898, 1024);
-            this.Controls.Add(this.cbCustomer);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnRemovePart);
             this.Controls.Add(this.btnAddPart);
-            this.Controls.Add(this.btnCreateOrder);
             this.Controls.Add(this.btnCloseOrder);
             this.Controls.Add(this.btnDeleteOrder);
             this.Controls.Add(this.dataGridAvalaibleParts);
@@ -195,6 +158,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Order";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.FrOrderEdit_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridPartsInOrder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridAvalaibleParts)).EndInit();
             this.ResumeLayout(false);
@@ -210,9 +174,6 @@
         private System.Windows.Forms.Button btnRemovePart;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox cbCustomer;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnCreateOrder;
         private System.Windows.Forms.DataGridView dataGridAvalaibleParts;
     }
 }
