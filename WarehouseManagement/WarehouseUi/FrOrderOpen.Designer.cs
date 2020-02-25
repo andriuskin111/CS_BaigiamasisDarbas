@@ -52,7 +52,7 @@
             this.dataGridPartsInOrder.RowHeadersWidth = 62;
             this.dataGridPartsInOrder.RowTemplate.Height = 28;
             this.dataGridPartsInOrder.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridPartsInOrder.Size = new System.Drawing.Size(820, 515);
+            this.dataGridPartsInOrder.Size = new System.Drawing.Size(1240, 515);
             this.dataGridPartsInOrder.TabIndex = 0;
             // 
             // label2
@@ -77,7 +77,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(878, 624);
+            this.ClientSize = new System.Drawing.Size(1298, 624);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dataGridPartsInOrder);
